@@ -10,6 +10,37 @@ class AuthForm extends StatefulWidget {
 class _AuthFormState extends State<AuthForm> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: ListView(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                hintText: 'Enter your email',
+                prefixIcon: Icon(Icons.email),
+
+                // 👉 Proper box border
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.blue, width: 2),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
