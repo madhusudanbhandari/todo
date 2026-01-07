@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/authscreen.dart';
 
@@ -16,7 +17,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Authscreen(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, userSnapshot) {
+          if (userSnapshot.hasData) {
+            return const Authscreen();
+          }
+          return const Authscreen();
+        },
+      ),
     );
   }
 }

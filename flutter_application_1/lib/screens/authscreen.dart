@@ -12,7 +12,7 @@ class _AuthscreenState extends State<Authscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login'), centerTitle: true),
+      appBar: AppBar(title: const Text('Authentication'), centerTitle: true),
       body: const AuthForm(),
     );
   }
