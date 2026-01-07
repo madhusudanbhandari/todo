@@ -93,24 +93,25 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   ),
                   SizedBox(height: 16),
-
-                  TextFormField(
-                    validator: (value) => value!.isEmpty || !value.contains('@')
-                        ? 'Please enter a valid email address'
-                        : null,
-                    onSaved: (value) {
-                      _Email = value!;
-                    },
-                    key: ValueKey('email'),
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                      prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
+                  if (!_isLogin)
+                    TextFormField(
+                      validator: (value) =>
+                          value!.isEmpty || !value.contains('@')
+                          ? 'Please enter a valid email address'
+                          : null,
+                      onSaved: (value) {
+                        _Email = value!;
+                      },
+                      key: ValueKey('email'),
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        hintText: 'Email',
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
-                  ),
                   SizedBox(height: 16),
 
                   TextFormField(
