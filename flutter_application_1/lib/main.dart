@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/authscreen.dart';
+import 'package:flutter_application_1/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, userSnapshot) {
           if (userSnapshot.hasData) {
-            return const Authscreen();
+            return const HomePage();
           }
           return const Authscreen();
         },
