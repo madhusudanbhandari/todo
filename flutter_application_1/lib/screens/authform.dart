@@ -131,6 +131,29 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   ),
                   SizedBox(height: 16),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    onPressed: () {
+                      startauthentication();
+                    },
+                    child: Text(_isLogin ? 'Login' : 'Sign Up'),
+                  ),
+                  SizedBox(height: 15),
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _isLogin = !_isLogin;
+                      });
+                    },
+                    style: TextButton.styleFrom(backgroundColor: Colors.grey),
+                    child: Text(
+                      _isLogin
+                          ? 'Create new account'
+                          : 'I already have an account',
+                    ),
+                  ),
                 ],
               ),
             ),
