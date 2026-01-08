@@ -1,24 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/screens/AddTodo.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-            },
-          ),
-        ],
+        backgroundColor: Colors.grey,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(child: Container()),
+            Text('Todo List'),
+            Expanded(child: Container()),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/authscreen');
+              },
+              child: Container(child: Icon(Icons.exit_to_app)),
+            ),
+          ],
+        ),
       ),
-      body: const Center(child: Text('Welcome to Todo App')),
+      body: Container(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddTodo()),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
