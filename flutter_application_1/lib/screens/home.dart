@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => AddTodo()),
           );
         },
-        child: const Icon(Icons.add),
+        child: Text('Add'),
       ),
     );
   }
